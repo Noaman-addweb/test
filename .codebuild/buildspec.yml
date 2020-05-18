@@ -11,4 +11,4 @@ phases:
     commands:
       - |
         cd .codebuild && \
-        ansible-playbook main.yml -vv 
+        ansible-playbook main.yml -vvv 

@@ -1,5 +1,6 @@
 ---
 - hosts: all
+  gather_facts: false
   vars:
     root_dir: "{{ lookup('env','ROOT_DIR') }}"
     branch: "{{ lookup('env','BRANCH') }}"

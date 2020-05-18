@@ -12,7 +12,7 @@
 #    - name: Config file mode off
 #      command: git config core.filemode false chdir={{root_dir}}
     - name: Update code
-      shell: GIT_SSH_COMMAND='ssh -i {{gitkey}}' git pull origin {{branch}} chdir={{root_dir}}
+      shell: git pull origin {{branch}} chdir={{root_dir}}
 #    - name: Delete composer.lock
 #      command: rm -rf composer.lock chdir={{root_dir}}
 ##    - name: Composer Install

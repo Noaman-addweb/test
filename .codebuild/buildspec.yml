@@ -2,9 +2,9 @@ version: 0.1
 phases:
   pre_build:
     commands:
-     - echo $PRIVATE_KEY > ./codebuild/id_rsa
-     - echo $HOSTS > ./codebuild/hosts
-     - echo $KEY > ./codebuild/GIT_KEY
+     - echo "$PRIVATE_KEY" > ./codebuild/id_rsa
+     - echo "$HOSTS" > ./codebuild/hosts
+     - echo "$KEY" > ./codebuild/GIT_KEY
      - chmod 400 GIT_KEY id_rsa
   build:
     commands:

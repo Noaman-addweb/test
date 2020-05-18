@@ -1,0 +1,28 @@
+---
+- hosts: gtpstage
+  vars:
+    root_dir: "/home/ubuntu/project/gtp-base"
+    branch: "master"
+    giturl: git@github.com:saurabhd/gtp-base.git
+    gitkey: "./KEY"
+
+  tasks:
+
+    - name: Config file mode off
+      command: git config core.filemode false chdir={{root_dir}}
+    - name: Update code
+      shell: GIT_SSH_COMMAND='ssh -i {{gitkey}}' git pull origin {{branch}} chdir={{root_dir}}
+    - name: Delete composer.lock
+      command: rm -rf composer.lock chdir={{root_dir}}
+    - name: Composer Install
+      command: composer install chdir={{root_dir}}   
+    - name: npm install
+      command: npm install chdir={{root_dir}}
+    - name: composer dump-autoload
+      command: composer dump-autoload chdir={{root_dir}}
+    - name: php artisan migrate
+      command: php artisan migrate chdir={{root_dir}}
+    - name: npm run dev
+      command: npm run dev chdir={{root_dir}}
+    - name: php artisan optimize
+      command: php artisan optimize chdir={{root_dir}}

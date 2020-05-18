@@ -1,10 +1,10 @@
 ---
-- hosts: gtpstage
+- hosts: all
   vars:
-    root_dir: "/home/ubuntu/project/gtp-base"
-    branch: "master"
-    giturl: git@github.com:saurabhd/gtp-base.git
-    gitkey: "./KEY"
+    root_dir: "{{ lookup('env','ROOT_DIR') }}"
+    branch: "{{ lookup('env','BRANCH') }}"
+    giturl: "{{ lookup('env','GIT_URL') }}"
+    gitkey: "./GIT_KEY"
 
   tasks:
 

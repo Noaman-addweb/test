@@ -9,5 +9,6 @@ phases:
      - chmod 400 ./.codebuild/id_rsa
   build:
     commands:
-      - cd .codebuild
-      - ansible-playbook main.yml -vv 
+      - |
+        cd .codebuild && \
+        ansible-playbook main.yml -vv 
